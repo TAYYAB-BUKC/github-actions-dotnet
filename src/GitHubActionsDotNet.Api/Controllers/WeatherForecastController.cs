@@ -17,7 +17,8 @@ public class WeatherForecastController : ControllerBase
         "Balmy",
         "Hot",
         "Sweltering",
-        "Scorching"
+        "Scorching",
+        "Frigid"
     ];
 
     [HttpGet(Name = "GetWeatherForecast")]
