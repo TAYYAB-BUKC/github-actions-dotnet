@@ -1,0 +1,25 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: CI Workflow
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0
+          
+      - name: Build Tests with dotnet
+        run: dotnet test --configuration Release
+
+      - name: dotnet publish
+        #working-directory: src/
+        run: dotnet publish src/GitHubActionsDotNet.Api/GitHubActionsDotNet.Api.csproj --configuration Release -o artifacts
