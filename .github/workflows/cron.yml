@@ -1,0 +1,14 @@
+name: Run at every minute past hour 5
+
+on:
+  schedule:
+    - cron: "* 5 * * *"
+
+jobs:
+  cron:
+    name: Run at every minute past hour 5
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo Hello World
+        run: echo "Hello World"
