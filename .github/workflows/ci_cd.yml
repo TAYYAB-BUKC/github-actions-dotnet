@@ -1,4 +1,4 @@
-name: CI Workflow
+name: CI/CD Workflow
 
 on:
   push:
@@ -29,3 +29,22 @@ jobs:
         with:
           name: github-actions-artifact
           path: artifacts/
+
+  Development_Deployment:
+    name: Deploy Dev
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.6.2
+        with:
+          name: github-actions-artifact
+          path: artifacts_final/
+      
+      # Deploy to Azure Web apps
+      - name: 'Deploy to Azure App Service'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: ${{ vars.DEV_APP_NAME }} # Replace with your app name
+          package: final_artifacts/
