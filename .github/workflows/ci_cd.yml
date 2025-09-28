@@ -51,7 +51,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-actions-artifact
-          path: artifacts_final/
+          path: final_artifacts/
           
       # Deploy to Azure Web apps
       - name: 'Deploy to Azure App Service'
