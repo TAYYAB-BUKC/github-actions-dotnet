@@ -36,12 +36,19 @@ jobs:
     needs: build
 
     steps:
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.DEV_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.DEV_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.DEV_AZURE_SUBSCRIPTION_ID }}
+
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4
         with:
           name: github-actions-artifact
           path: artifacts_final/
-      
+          
       # Deploy to Azure Web apps
       - name: 'Deploy to Azure App Service'
         uses: azure/webapps-deploy@v2
