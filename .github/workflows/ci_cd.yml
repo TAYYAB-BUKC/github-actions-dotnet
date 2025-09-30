@@ -40,6 +40,7 @@ jobs:
     uses: ./.github/workflows/step-deploy.yml
     with:
       env: Development
+    secrets: inherit
 
   Production_Deployment:
     name: Deploy Production
@@ -47,3 +48,4 @@ jobs:
     uses: ./.github/workflows/step-deploy.yml
     with:
       env: Production
+    secrets: inherit
