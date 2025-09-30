@@ -38,7 +38,7 @@ jobs:
     name: Deploy Dev
     needs: build
     # uses: ./.github/workflows/step-deploy.yml
-    uses: tayyab-bukc/github-actions-reusable/.github/workflows/step-azure-app-service-deploy.yml@master
+    uses: tayyab-bukc/github-actions-reusable/.github/workflows/step-azure-app-service-deploy.yml@Master
     with:
       env: Development
     secrets: inherit
@@ -47,7 +47,7 @@ jobs:
     name: Deploy Production
     needs: build
     # uses: ./.github/workflows/step-deploy.yml
-    uses: tayyab-bukc/github-actions-reusable/.github/workflows/step-azure-app-service-deploy.yml@master
+    uses: tayyab-bukc/github-actions-reusable/.github/workflows/step-azure-app-service-deploy.yml@Master
     with:
       env: Production
     secrets: inherit
