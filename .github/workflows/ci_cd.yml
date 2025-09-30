@@ -37,13 +37,13 @@ jobs:
   Development_Deployment:
     name: Deploy Dev
     needs: build
-    uses: ./github/workflows/step-deploy.yml
-      with:
-        env: Development
+    uses: ./.github/workflows/step-deploy.yml
+    with:
+      env: Development
 
   Production_Deployment:
     name: Deploy Production
     needs: build
-    uses: ./github/workflows/step-deploy.yml
-      with:
-        env: Production
+    uses: ./.github/workflows/step-deploy.yml
+    with:
+      env: Production
