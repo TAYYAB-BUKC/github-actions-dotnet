@@ -41,6 +41,7 @@ jobs:
     uses: tayyab-bukc/github-actions-reusable/.github/workflows/step-azure-app-service-deploy.yml@Master
     with:
       env: Development
+      Resource_Group_Name: rg-github-actions-dev
     secrets: inherit
 
   Production_Deployment:
@@ -50,4 +51,5 @@ jobs:
     uses: tayyab-bukc/github-actions-reusable/.github/workflows/step-azure-app-service-deploy.yml@Master
     with:
       env: Production
+      Resource_Group_Name: rg-github-actions-production
     secrets: inherit
