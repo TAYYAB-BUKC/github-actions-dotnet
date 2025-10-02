@@ -20,7 +20,7 @@ var appServiceProperties = {
   }
 }
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2025-09-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
   name: 'asp-${appName}-${environment}'
   location: location
   sku: {
@@ -32,7 +32,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2025-09-01' = {
   }
 }
 
-resource appService 'Microsoft.Web/sites@2025-09-01' = {
+resource appService 'Microsoft.Web/sites@2024-11-01' = {
   name: 'app-${appName}-${environment}'
   location: location
   identity: {
@@ -41,7 +41,7 @@ resource appService 'Microsoft.Web/sites@2025-09-01' = {
   properties: appServiceProperties
 }
 
-resource appSettings 'Microsoft.Web/sites/config@2025-09-01' = {
+resource appSettings 'Microsoft.Web/sites/config@2024-11-01' = {
   name: 'appsettings'
   kind: 'string'
   parent: appService
@@ -50,7 +50,7 @@ resource appSettings 'Microsoft.Web/sites/config@2025-09-01' = {
   }
 }
 
-resource appServiceSlot 'Microsoft.Web/sites/slots@2025-09-01' = {
+resource appServiceSlot 'Microsoft.Web/sites/slots@2024-11-01' = {
   location: location
   parent: appService
   name: 'slot'
@@ -60,7 +60,7 @@ resource appServiceSlot 'Microsoft.Web/sites/slots@2025-09-01' = {
   properties: appServiceProperties
 }
 
-resource appServiceSlotSetting 'Microsoft.Web/sites/slots/config@2025-09-01' = {
+resource appServiceSlotSetting 'Microsoft.Web/sites/slots/config@2024-11-01' = {
   name: 'appsettings'
   kind: 'string'
   parent: appServiceSlot
